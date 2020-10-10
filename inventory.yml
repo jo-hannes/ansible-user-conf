@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: MIT
+---
+# Just use the local machine
+all:
+  hosts:
+    this.machi.ne:
+      ansible_host: localhost
+      ansible_connection: local

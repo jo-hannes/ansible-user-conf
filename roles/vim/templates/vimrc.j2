@@ -1,0 +1,46 @@
+" {{ ansible_managed }}
+
+" Special keys
+{% if vim_syntax %}
+syntax on
+{% endif %}
+
+set background={{ vim_background }}
+
+{% if vim_jump_last_pos %}
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+{% endif %}
+
+{% if vim_indent %}
+if has("autocmd")
+  filetype plugin indent on
+  set smartindent
+endif
+{% endif %}
+
+{% if vim_tab_mode == 'spaces' %}
+set expandtab
+{% endif %}
+{% if vim_tab_mode == 'tab' %}
+set noexpandtab
+{% endif %}
+set shiftwidth={{ vim_tab_size }}
+set tabstop={{ vim_tab_size }}
+set softtabstop={{ vim_tab_size }}
+
+
+" simple setter
+{% if vim_setter is defined and vim_setter %}
+{% for k in vim_setter %}
+set {{ k }}
+{% endfor %}
+{% endif %}
+
+" setter with value
+{% if vim_set_value is defined and vim_set_value %}
+{% for k,v in vim_set_value.items() %}
+set {{ k }}={{ v }}
+{% endfor %}
+{% endif %}

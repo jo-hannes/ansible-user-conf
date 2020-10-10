@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: MIT
+---
+# vim role defaults vim/defaults/main.yml
+vimrc_scope: user
+vimrc_user: "{{ ansible_user_id }}"
+vimrc_gid: "{{ ansible_user_gid }}"
+
+vim_syntax: true
+vim_background: dark
+vim_jump_last_pos: true
+vim_indent: true
+vim_tab_mode: spaces
+vim_tab_size: 4
+
+vim_setter:
+  - title
+  - ruler
+  - showcmd
+  - number
+  - showmatch
+  - hlsearch
+  - incsearch
+  - smartcase
+
+vim_set_value:
+  mouse: a

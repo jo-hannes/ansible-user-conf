@@ -1,0 +1,4 @@
+# SPDX-License-Identifier: MIT
+---
+vim_packages_install:
+  - vim-nox

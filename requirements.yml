@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: MIT
+---
+roles:
+  # Required roles from the ansible galaxy
+
+  # Roles directly from git repo
+
+  # get latest version of viasite-ansible.git. The version in the ansible-galaxy
+  # is to old.
+  # - src: https://github.com/viasite-ansible/ansible-role-git.git
+  #   version: master
+  #   name: viasite-ansible.git
+  # Use own fork with fix
+  - src: https://github.com/jo-hannes/ansible-role-git.git
+    version: set-correct-gid
+    name: viasite-ansible.git
+
+#collections:
