@@ -8,16 +8,10 @@
     name: "{{ vim_packages_install }}"
     state: present
 
-- name: Configure /etc/vim/vimrc
-  template:
-    src: vimrc.j2
-    dest: "/etc/vim/vimrc"
-  when: vimrc_scope == 'system'
-
 - name: Configure ~/.vimrc
   template:
     src: vimrc.j2
-    dest: "~{{ vimrc_user }}/.vimrc"
-    owner: "{{ vimrc_user }}"
-    group: "{{ vimrc_gid }}"
-  when: vimrc_scope == 'user'
+    dest: "~{{ ansible_user_id }}/.vimrc"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_gid }}"
+    mode: 0644

@@ -1,46 +1,40 @@
+" SPDX-License-Identifier: MIT
 " {{ ansible_managed }}
 
-" Special keys
-{% if vim_syntax %}
+" Vim5 and later versions support syntax highlighting. Uncommenting the next
+" line enables syntax highlighting by default.
 syntax on
-{% endif %}
 
-set background={{ vim_background }}
+" If using a dark background within the editing area and syntax highlighting
+" turn on this option as well
+set background=dark
 
-{% if vim_jump_last_pos %}
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-{% endif %}
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-{% if vim_indent %}
-if has("autocmd")
-  filetype plugin indent on
-  set smartindent
-endif
-{% endif %}
+" Uncomment the following to have Vim load indentation rules and plugins
+" according to the detected filetype.
+filetype plugin indent on
 
-{% if vim_tab_mode == 'spaces' %}
-set expandtab
-{% endif %}
-{% if vim_tab_mode == 'tab' %}
-set noexpandtab
-{% endif %}
-set shiftwidth={{ vim_tab_size }}
-set tabstop={{ vim_tab_size }}
-set softtabstop={{ vim_tab_size }}
+" The following are commented out as they cause vim to behave a lot
+" differently from regular Vi. They are highly recommended though.
+set showcmd            " Show (partial) command in status line.
+set showmatch          " Show matching brackets.
+"set ignorecase         " Do case insensitive matching
+set smartcase          " Do smart case matching
+set incsearch          " Incremental search
+"set autowrite          " Automatically save before commands like :next and :make
+"set hidden             " Hide buffers when they are abandoned
+set mouse=a            " Enable mouse usage (all modes)
 
+set title              " Set the window tittle
+set ruler              " Show the line and column number of the cursor position
+set number             " Print the line number in front of each line
+set hlsearch           " When there is a previous search pattern, highlight all its matches
+set smartindent        " Do smart autoindenting when starting a new line
 
-" simple setter
-{% if vim_setter is defined and vim_setter %}
-{% for k in vim_setter %}
-set {{ k }}
-{% endfor %}
-{% endif %}
-
-" setter with value
-{% if vim_set_value is defined and vim_set_value %}
-{% for k,v in vim_set_value.items() %}
-set {{ k }}={{ v }}
-{% endfor %}
-{% endif %}
+set expandtab          " Use spaces to insert a tab
+set shiftwidth=4       " Number of spaces to use for each step of (auto)indent
+set tabstop=4          " Number of spaces that a <Tab> in the file counts for
+set softtabstop=4      " Number of spaces that a <Tab> counts while inserting a <Tab>

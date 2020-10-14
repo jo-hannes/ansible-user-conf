@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: MIT
+# {{ ansible_managed }}
+
+[user]
+    name = {{ git_user_name }}
+    email = {{ git_user_email }}
+
+[color]
+    ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+
+[core]
+    editor = vim
+    pager = less -F -X
+
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+[mergetool]
+    prompt = false
+
+[alias]
+    st = status
+    dt = difftool
+    mt = mergetool
+    tree = log --graph --all --decorate
+    slog = log --pretty=oneline --abbrev-commit --name-only
+    wdiff = diff --color-words

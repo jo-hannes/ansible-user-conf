@@ -2,68 +2,10 @@
 ---
 # Configure dotfiles
 - hosts: this.machi.ne
-  vars:
-    # git vars
-    git_gitignore:
-      - "*.o"
-
-    git_config_alias:
-      st: status
-      dt: difftool
-      mt: mergetool
-      tree: "log --graph --all --decorate"
-      slog: "log --pretty=oneline --abbrev-commit --name-only"
-      wdiff: "diff --color-words"
-
-    git_config_color:
-      ui: auto
-      diff: auto
-      status: auto
-      branch: auto
-
-    git_config_core:
-      editor: vim
-      pager: "less -F -X"
-
-    git_config_diff:
-      tool: vimdiff
-
-    git_config_user:
-      name: jo-hannes
-      email: 53308649+jo-hannes@users.noreply.github.com
-
-    git_config_other:
-      merge:
-        tool: vimdiff
-        conflictstyle: diff3
-      mergetool:
-        prompt: "false"
-      difftool:
-        prompt: "false"
-
-    #vim vars
-    vimrc_scope: user
-
-    vim_syntax: true
-    vim_background: dark
-    vim_jump_last_pos: true
-    vim_indent: true
-    vim_tab_mode: spaces
-    vim_tab_size: 4
-
-    vim_setter:
-      - title
-      - ruler
-      - showcmd
-      - number
-      - showmatch
-      - hlsearch
-      - incsearch
-      - smartcase
-
-    vim_set_value:
-      mouse: a
-
+# Uncomment the following lines to configure your git user
+#  vars:
+#    git_user_name: "jo-hannes"
+#    git_user_email: "53308649+jo-hannes@users.noreply.github.com"
   roles:
-    - viasite-ansible.git
+    - git
     - vim

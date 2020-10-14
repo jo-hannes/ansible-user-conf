@@ -51,12 +51,6 @@ function main() {
         echo "Error: Unable to install ansible"
         return 1
     fi
-    echo "## Installing required roles form galaxy ##"
-    echo "TODO"
-    if ! ansible-galaxy install -r requirements.yml; then
-        echo "Error: Unable to install roles form ansible galaxy"
-        return 1
-    fi
     echo "## Running Ansible playbook ##"
     if ! ansible-playbook dotfiles.yml; then
         echo "Error: Unable to run playbook"
