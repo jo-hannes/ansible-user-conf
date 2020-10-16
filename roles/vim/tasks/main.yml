@@ -1,12 +1,5 @@
 # SPDX-License-Identifier: MIT
 ---
-- name: Include OS family specific variables
-  include_vars: "{{ ansible_os_family }}.yml"
-
-- name: Install vim
-  package:
-    name: "{{ vim_packages_install }}"
-    state: present
 
 - name: Configure ~/.vimrc
   template:

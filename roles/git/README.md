@@ -1,6 +1,6 @@
 # Simple git Ansible role
 
-Ansible role which installs and configures git.
+Ansible role which configures git.
 
 ## Role Variables
 

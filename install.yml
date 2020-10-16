@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: MIT
+---
+# install tools
+- hosts: this.machi.ne
+  roles:
+    - tools
+
