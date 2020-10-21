@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: MIT
+# {{ ansible_managed }}
+
+# common settings
+startup_message off     # Disable welcome message
+vbell off               # Disable visual bell
+defscrollback 32168     # define a bigger scroll back
+defnonblock 5           # Enable non-blocking mode to better cope with flaky ssh connections
+
+# key bindings
+escape ^bb              # Use CTRL+b instead of CTRL+a
+bind ^k                 # Remove some stupid / dangerous key bindings
+bind K kill             # Make them better
+
+# status line
+hardstatus alwayslastline
+hardstatus string '%{= G}[%= %{= w}%?%-Lw%?%{= R}%n*%f %t%?%{= R}(%u)%?%{= w}%+Lw%?%= %{= g}][ %{y}Load: %l %{g}]'

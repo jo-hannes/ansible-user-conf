@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: MIT
+---
+
+- name: Configure ~/.screenrc
+  template:
+    src: screenrc.j2
+    dest: "~{{ ansible_user_id }}/.screenrc"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_gid }}"
+    mode: 0644
