@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: MIT
+---
+
+- name: Configure ~/.tmux.conf
+  template:
+    src: tmux.conf.j2
+    dest: "~{{ ansible_user_id }}/.tmux.conf"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_gid }}"
+    mode: 0644

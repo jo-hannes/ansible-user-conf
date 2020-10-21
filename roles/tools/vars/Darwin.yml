@@ -4,3 +4,4 @@ tools_packages_install:
   - git
   - vim
   - screen
+  - tmux
