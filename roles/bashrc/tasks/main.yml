@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: MIT
+---
+
+- name: Configure ~/.bashrc
+  blockinfile:
+    path: "~{{ ansible_user_id }}/.bashrc"
+    create: yes
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_gid }}"
+    mode: 0644
+    block: "{{ lookup('file', 'bashrc.append') }}"
