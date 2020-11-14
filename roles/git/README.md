@@ -1,5 +1,3 @@
-SPDX-License-Identifier: MIT
-
 # Simple git Ansible role
 
 Ansible role which configures git.

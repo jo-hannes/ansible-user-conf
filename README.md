@@ -1,5 +1,3 @@
-SPDX-License-Identifier: MIT
-
 # ansible-user-conf
 Ansible playbook to configure shell tools
 
