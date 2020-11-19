@@ -8,3 +8,8 @@
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_gid }}"
     mode: 0644
+
+- name: Install plugin vim-ansible-yaml
+  git:
+    repo: 'https://github.com/chase/vim-ansible-yaml.git'
+    dest: "~{{ ansible_user_id }}/.vim/pack/yml/start/vim-ansible-yaml/"
