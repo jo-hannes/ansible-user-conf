@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: MIT
+# Copyright 2022 jo-hannes <jo-hannes@dev-urandom.de>
 ---
 # git role defaults
 git_user_name: "jo-hannes"
-git_user_email: "53308649+jo-hannes@users.noreply.github.com"
+git_user_email: "jo-hannes@dev-urandom.de"
 
